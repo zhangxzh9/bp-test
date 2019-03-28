@@ -44,17 +44,11 @@ double v[Out][Neuron] = {
 };
 double o[Neuron] = {0.0};
 double exp(double x)
-
 {
 	x = 1.0 + x / 256;
-	x *= x;
-	x *= x;
-	x *= x;
-	x *= x;
-	x *= x;
-	x *= x;
-	x *= x;
-	x *= x;
+	for (int i = 0; i < 8; i++){
+		x *= x;
+	}
 	return x;
 }
 
@@ -87,7 +81,7 @@ int main(int argc, char **argv)
 
   while ((i++) < 10) {
 	  var1 = i;
-	  var2 = 10.0 - i;
+	  var2 = i;
 	  printf("%lf+%lf forecast1 is %lf \n", var1, var2, result(var1, var2));
 	  
   }
